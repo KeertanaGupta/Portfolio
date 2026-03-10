@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Keertana Gupta — Full Stack &amp; AI Developer</title>
+  <meta name="description" content="Portfolio of Keertana Gupta — Full Stack & AI Developer." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- =========================================== -->
+  <!-- LOADER                                       -->
+  <!-- =========================================== -->
+  <div id="loader" class="loader">
+    <div class="loader__canvas-wrap">
+      <svg id="loader-svg" class="loader__svg" viewBox="0 0 900 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <line class="construct-line h-line" x1="0" y1="30"  x2="900" y2="30"  />
+        <line class="construct-line h-line" x1="0" y1="100" x2="900" y2="100" />
+        <line class="construct-line h-line" x1="0" y1="170" x2="900" y2="170" />
+        <line class="construct-line v-guide" x1="50"  y1="10" x2="50"  y2="190" />
+        <line class="construct-line v-guide" x1="150" y1="10" x2="150" y2="190" />
+        <line class="construct-line v-guide" x1="220" y1="10" x2="220" y2="190" />
+        <line class="construct-line v-guide" x1="320" y1="10" x2="320" y2="190" />
+        <line class="construct-line v-guide" x1="390" y1="10" x2="390" y2="190" />
+        <line class="construct-line v-guide" x1="490" y1="10" x2="490" y2="190" />
+        <line class="construct-line v-guide" x1="560" y1="10" x2="560" y2="190" />
+        <line class="construct-line v-guide" x1="660" y1="10" x2="660" y2="190" />
+        <line class="construct-line v-guide" x1="730" y1="10" x2="730" y2="190" />
+        <line class="construct-line v-guide" x1="830" y1="10" x2="830" y2="190" />
+        <circle class="construct-circle" cx="100" cy="100" r="50" />
+        <circle class="construct-circle" cx="270" cy="100" r="50" />
+        <circle class="construct-circle" cx="440" cy="100" r="50" />
+        <circle class="construct-circle" cx="610" cy="100" r="50" />
+        <circle class="construct-circle" cx="780" cy="100" r="50" />
+        <line class="construct-line diag" x1="50"  y1="30" x2="150" y2="170" />
+        <line class="construct-line diag" x1="150" y1="30" x2="50"  y2="170" />
+        <line class="construct-line diag" x1="220" y1="30" x2="320" y2="170" />
+        <line class="construct-line diag" x1="320" y1="30" x2="220" y2="170" />
+        <line class="construct-line diag" x1="390" y1="30" x2="490" y2="170" />
+        <line class="construct-line diag" x1="490" y1="30" x2="390" y2="170" />
+        <line class="construct-line diag" x1="560" y1="30" x2="660" y2="170" />
+        <line class="construct-line diag" x1="660" y1="30" x2="560" y2="170" />
+        <line class="construct-line diag" x1="730" y1="30" x2="830" y2="170" />
+        <line class="construct-line diag" x1="830" y1="30" x2="730" y2="170" />
+        <circle class="construct-dot" cx="50"  cy="30"  r="3" />
+        <circle class="construct-dot" cx="150" cy="30"  r="3" />
+        <circle class="construct-dot" cx="220" cy="30"  r="3" />
+        <circle class="construct-dot" cx="320" cy="170" r="3" />
+        <circle class="construct-dot" cx="490" cy="30"  r="3" />
+        <circle class="construct-dot" cx="660" cy="170" r="3" />
+        <circle class="construct-dot" cx="830" cy="30"  r="3" />
+      </svg>
+      <div class="loader__letters" id="loader-letters">
+        <span class="loader__letter">K</span>
+        <span class="loader__letter">e</span>
+        <span class="loader__letter">e</span>
+        <span class="loader__letter">r</span>
+        <span class="loader__letter">t</span>
+        <span class="loader__letter">a</span>
+        <span class="loader__letter">n</span>
+        <span class="loader__letter">a</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================== -->
+  <!-- MAIN                                         -->
+  <!-- =========================================== -->
+  <main id="main-content" class="main-content">
+
+    <!-- HERO — Auto-transitioning cinematic panels -->
+    <section id="hero" class="hero">
+      <div class="hero__shimmer"></div>
+      <div class="hero__persistent" id="hero-persistent">
+        <div class="hero__line-wrap">
+          <h1 class="hero__giant-text" id="persistent-name">KEERTANA</h1>
+        </div>
+      </div>
+      <div class="hero__subtitle-stage" id="subtitle-stage">
+        <div class="hero__subtitle hero__subtitle--active" id="sub-1">
+          <div class="hero__line-wrap">
+            <h2 class="hero__giant-text hero__giant-text--stroke">GUPTA</h2>
+          </div>
+        </div>
+        <div class="hero__subtitle" id="sub-2">
+          <div class="hero__line-wrap">
+            <h2 class="hero__giant-text hero__giant-text--accent">FULL STACK</h2>
+          </div>
+          <div class="hero__line-wrap">
+            <h2 class="hero__giant-text">DEVELOPER</h2>
+          </div>
+        </div>
+        <div class="hero__subtitle" id="sub-3">
+          <div class="hero__line-wrap">
+            <h2 class="hero__giant-text hero__giant-text--stroke">AI</h2>
+          </div>
+          <div class="hero__line-wrap">
+            <h2 class="hero__giant-text hero__giant-text--accent">DEVELOPER</h2>
+          </div>
+        </div>
+      </div>
+      <div class="hero__side hero__side--left" id="hero-side-left">
+        <span class="hero__side-text">CREATOR OF INTELLIGENT</span>
+        <span class="hero__side-text">DIGITAL EXPERIENCES</span>
+      </div>
+      <div class="hero__side hero__side--right" id="hero-side-right">
+        <span class="hero__side-text">BUILDING SCALABLE</span>
+        <span class="hero__side-text">AI-POWERED SYSTEMS</span>
+      </div>
+      <div class="hero__bottom">
+        <span class="hero__bottom-text">KEERTANA GUPTA©. ALL RIGHTS RESERVED © 2026</span>
+        <div class="hero__bottom-links">
+          <span>GITHUB</span>
+          <span>LINKEDIN</span>
+          <span>TWITTER</span>
+        </div>
+      </div>
+      <div class="hero__scroll-cue" id="scroll-cue">
+        <span class="hero__scroll-cue-label">SCROLL</span>
+        <div class="hero__scroll-cue-line"></div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section about">
+      <div class="section__container">
+        <span class="section__number" data-scroll-reveal>01</span>
+        <h2 class="section__heading" data-scroll-reveal>About</h2>
+        <div class="about__content">
+          <p class="about__text about__text--hero" data-scroll-reveal>
+            I craft digital experiences that blend
+            <em>elegant design</em> with
+            <em>intelligent systems</em>.
+          </p>
+          <p class="about__text" data-scroll-reveal>
+            Passionate about building scalable full-stack applications
+            and exploring the frontiers of artificial intelligence.
+            Every project is an opportunity to push boundaries and
+            create something extraordinary.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================== -->
+    <!-- PROJECTS — Cinematic Scroll Gallery          -->
+    <!-- =========================================== -->
+    <section id="projects" class="projects-gallery">
+      <div class="projects-gallery__inner" id="projects-inner">
+
+        <!-- Scene 1: Portfolio -->
+        <div class="pscene" data-bg-word="PORTFOLIO">
+          <div class="pscene__bg-text" aria-hidden="true">PORTFOLIO</div>
+          <div class="pscene__content">
+            <div class="pscene__card-wrap">
+              <div class="pscene__card">
+                <div class="pscene__card-spine"></div>
+                <img src="assets/cover-portfolio.png" alt="" class="pscene__card-img" />
+                <div class="pscene__card-overlay">
+                  <span class="pscene__card-badge">★ FEATURED</span>
+                  <span class="pscene__card-num">01</span>
+                </div>
+              </div>
+            </div>
+            <div class="pscene__details">
+              <span class="pscene__details-num">01 / 08</span>
+              <h3 class="pscene__details-title">Cinematic<br/>Portfolio</h3>
+              <p class="pscene__details-sub">This Website</p>
+              <p class="pscene__details-desc">A premium cinematic developer portfolio with SVG blueprint loader, auto-transitioning hero panels, and smooth GSAP scroll-driven animations.</p>
+              <div class="pscene__details-tags">
+                <span>HTML</span><span>CSS</span><span>GSAP</span><span>JavaScript</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Scene 2: RAG -->
+        <div class="pscene" data-bg-word="AI SYSTEM">
+          <div class="pscene__bg-text" aria-hidden="true">AI SYSTEM</div>
+          <div class="pscene__content">
+            <div class="pscene__card-wrap">
+              <div class="pscene__card">
+                <div class="pscene__card-spine"></div>
+                <img src="assets/cover-rag.png" alt="" class="pscene__card-img" />
+                <div class="pscene__card-overlay">
+                  <span class="pscene__card-num">02</span>
+                </div>
+              </div>
+            </div>
+            <div class="pscene__details">
+              <span class="pscene__details-num">02 / 08</span>
+              <h3 class="pscene__details-title">Offline Multimodel<br/>RAG System</h3>
+              <p class="pscene__details-desc">An offline retrieval-augmented generation system supporting multiple modalities — text, images, and documents — powered by local LLMs for private, secure AI inference.</p>
+              <div class="pscene__details-tags">
+                <span>Python</span><span>LLM</span><span>RAG</span><span>AI</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Scene 3: Mediprior -->
+        <div class="pscene" data-bg-word="HEALTHCARE">
+          <div class="pscene__bg-text" aria-hidden="true">HEALTHCARE</div>
+          <div class="pscene__content">
+            <div class="pscene__card-wrap">
+              <div class="pscene__card">
+                <div class="pscene__card-spine"></div>
+                <img src="assets/cover-health.png" alt="" class="pscene__card-img" />
+                <div class="pscene__card-overlay">
+                  <span class="pscene__card-num">03</span>
+                </div>
+              </div>
+            </div>
+            <div class="pscene__details">
+              <span class="pscene__details-num">03 / 08</span>
+              <h3 class="pscene__details-title">Mediprior</h3>
+              <p class="pscene__details-sub">Smart Health Portal · Django &amp; React · Aug–Nov 2025</p>
+              <p class="pscene__details-desc">Secure role-based healthcare platform with JWT auth, EMR uploads, vitals dashboard, AI-powered mental health chatbot, appointment management, and real-time patient–doctor chat using Django Channels &amp; WebSockets.</p>
+              <div class="pscene__details-tags">
+                <span>Django</span><span>React</span><span>WebSockets</span><span>JWT</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Scene 4: Dev Vault -->
+        <div class="pscene" data-bg-word="DEV TOOLS">
+          <div class="pscene__bg-text" aria-hidden="true">DEV TOOLS</div>
+          <div class="pscene__content">
+            <div class="pscene__card-wrap">
+              <div class="pscene__card">
+                <div class="pscene__card-spine"></div>
+                <img src="assets/cover-devvault.png" alt="" class="pscene__card-img" />
+                <div class="pscene__card-overlay">
+                  <span class="pscene__card-num">04</span>
+                </div>
+              </div>
+            </div>
+            <div class="pscene__details">
+              <span class="pscene__details-num">04 / 08</span>
+              <h3 class="pscene__details-title">Dev Vault</h3>
+              <p class="pscene__details-sub">Snippet Manager + Chrome Extension · Oct–Nov 2025</p>
+              <p class="pscene__details-desc">MERN-based snippet management with full-text search, tag filtering, JWT + HttpOnly auth. Chrome Extension (Manifest V3) for 1-click snippet capture with auto website link embedding and real-time dashboard sync.</p>
+              <div class="pscene__details-tags">
+                <span>MERN</span><span>Chrome Ext</span><span>MongoDB</span><span>JWT</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Scene 5: Smart Attendance -->
+        <div class="pscene" data-bg-word="SECURITY">
+          <div class="pscene__bg-text" aria-hidden="true">SECURITY</div>
+          <div class="pscene__content">
+            <div class="pscene__card-wrap">
+              <div class="pscene__card">
+                <div class="pscene__card-spine"></div>
+                <img src="assets/cover-attendance.png" alt="" class="pscene__card-img" />
+                <div class="pscene__card-overlay">
+                  <span class="pscene__card-num">05</span>
+                </div>
+              </div>
+            </div>
+            <div class="pscene__details">
+              <span class="pscene__details-num">05 / 08</span>
+              <h3 class="pscene__details-title">Smart Attendance</h3>
+              <p class="pscene__details-sub">QR + PIN System · PHP &amp; MySQL</p>
+              <p class="pscene__details-desc">Secure multi-factor attendance with dynamic QR codes, 30-sec rotating PIN, geolocation verification, class-wise control, student uploads, analytics dashboard, AJAX UI, and CSV export.</p>
+              <div class="pscene__details-tags">
+                <span>PHP</span><span>MySQL</span><span>AJAX</span><span>QR</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Scene 6: College CDC -->
+        <div class="pscene" data-bg-word="EDUCATION">
+          <div class="pscene__bg-text" aria-hidden="true">EDUCATION</div>
+          <div class="pscene__content">
+            <div class="pscene__card-wrap">
+              <div class="pscene__card">
+                <div class="pscene__card-spine"></div>
+                <img src="assets/cover-cdc.png" alt="" class="pscene__card-img" />
+                <div class="pscene__card-overlay">
+                  <span class="pscene__card-num">06</span>
+                </div>
+              </div>
+            </div>
+            <div class="pscene__details">
+              <span class="pscene__details-num">06 / 08</span>
+              <h3 class="pscene__details-title">College CDC<br/>Attendance</h3>
+              <p class="pscene__details-sub">Career Development Cell</p>
+              <p class="pscene__details-desc">Attendance management system for the College Career Development Cell, streamlining event tracking and student participation records.</p>
+              <div class="pscene__details-tags">
+                <span>Full-Stack</span><span>Web App</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Scene 7: Django Gaming Hub -->
+        <div class="pscene" data-bg-word="GAMING">
+          <div class="pscene__bg-text" aria-hidden="true">GAMING</div>
+          <div class="pscene__content">
+            <div class="pscene__card-wrap">
+              <div class="pscene__card">
+                <div class="pscene__card-spine"></div>
+                <img src="assets/cover-gaming.png" alt="" class="pscene__card-img" />
+                <div class="pscene__card-overlay">
+                  <span class="pscene__card-num">07</span>
+                </div>
+              </div>
+            </div>
+            <div class="pscene__details">
+              <span class="pscene__details-num">07 / 08</span>
+              <h3 class="pscene__details-title">Django<br/>Gaming Hub</h3>
+              <p class="pscene__details-desc">A web-based gaming platform built with Django featuring user profiles, game lobbies, leaderboards, and interactive gameplay experiences.</p>
+              <div class="pscene__details-tags">
+                <span>Django</span><span>Python</span><span>PostgreSQL</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Scene 8: Smart Public Service CRM -->
+        <div class="pscene" data-bg-word="PUBLIC">
+          <div class="pscene__bg-text" aria-hidden="true">PUBLIC</div>
+          <div class="pscene__content">
+            <div class="pscene__card-wrap">
+              <div class="pscene__card">
+                <div class="pscene__card-spine"></div>
+                <img src="assets/cover-crm.png" alt="" class="pscene__card-img" />
+                <div class="pscene__card-overlay">
+                  <span class="pscene__card-num">08</span>
+                </div>
+              </div>
+            </div>
+            <div class="pscene__details">
+              <span class="pscene__details-num">08 / 08</span>
+              <h3 class="pscene__details-title">Smart Public<br/>Service CRM</h3>
+              <p class="pscene__details-desc">A comprehensive CRM for public services enabling citizen request tracking, departmental routing, analytics dashboards, and efficient government service delivery.</p>
+              <div class="pscene__details-tags">
+                <span>Full-Stack</span><span>CRM</span><span>Analytics</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- EXPERTISE -->
+    <section id="skills" class="section skills">
+      <div class="section__container">
+        <span class="section__number" data-scroll-reveal>03</span>
+        <h2 class="section__heading" data-scroll-reveal>Expertise</h2>
+        <div class="skills__grid">
+          <div class="skill-card" data-scroll-reveal>
+            <div class="skill-card__icon">⚡</div>
+            <h3 class="skill-card__title">Full Stack Development</h3>
+            <p class="skill-card__desc">End-to-end web applications with modern frameworks, APIs, and cloud-native architectures.</p>
+          </div>
+          <div class="skill-card" data-scroll-reveal>
+            <div class="skill-card__icon">🧠</div>
+            <h3 class="skill-card__title">Artificial Intelligence</h3>
+            <p class="skill-card__desc">Machine learning models, NLP pipelines, and intelligent automation systems.</p>
+          </div>
+          <div class="skill-card" data-scroll-reveal>
+            <div class="skill-card__icon">🎨</div>
+            <h3 class="skill-card__title">UI / UX Design</h3>
+            <p class="skill-card__desc">Human-centered design with pixel-perfect interfaces and delightful micro-interactions.</p>
+          </div>
+          <div class="skill-card" data-scroll-reveal>
+            <div class="skill-card__icon">☁️</div>
+            <h3 class="skill-card__title">Cloud &amp; DevOps</h3>
+            <p class="skill-card__desc">Scalable deployments, CI/CD pipelines, and infrastructure as code.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section contact">
+      <div class="section__container">
+        <span class="section__number" data-scroll-reveal>04</span>
+        <h2 class="contact__heading" data-scroll-reveal>Let's Build<br/>Something Amazing</h2>
+        <p class="contact__sub" data-scroll-reveal>
+          Open to collaborations, freelance projects, and exciting opportunities.
+        </p>
+        <a href="mailto:hello@keertanagupta.dev" class="contact__cta" data-scroll-reveal>
+          Get in Touch
+          <span class="contact__cta-arrow">→</span>
+        </a>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>© 2026 Keertana Gupta. Crafted with precision.</p>
+    </footer>
+
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
