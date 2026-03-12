@@ -32,6 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
             gsap.set(mainContent, { opacity: 1 });
             runHeroCinematic();
             setupProjectsGallery();
+            setupEducationTimeline();
             setupScrollAnimations();
           }
         });
@@ -245,6 +246,142 @@ document.addEventListener('DOMContentLoaded', () => {
         });
       }
     });
+  }
+
+  // ── EDUCATION TIMELINE ────────────────────────
+  function setupEducationTimeline() {
+    const timeline = document.querySelector('.edu-timeline-new');
+    const track = document.getElementById('edu-track');
+    const progress = document.getElementById('edu-progress');
+    const glowingNode = document.getElementById('edu-moving-node');
+    const rows = document.querySelectorAll('.edu-row');
+    if (!timeline || rows.length === 0) return;
+
+    // Timeline progress & moving glowing node scrub
+    if (track && progress && glowingNode) {
+      ScrollTrigger.create({
+        trigger: timeline,
+        start: 'top 60%',    
+        end: 'bottom 60%',   
+        scrub: 1,            // smooth scrubbing
+        onUpdate: (self) => {
+          // Fill progress bar 
+          progress.style.height = (self.progress * 100) + '%';
+          // Move the glowing node down along the track
+          glowingNode.style.top = (self.progress * 100) + '%';
+          
+          // Fade node in when scrolling starts, fade out at very end
+          if (self.progress > 0.02 && self.progress < 0.98) {
+            glowingNode.style.opacity = 1;
+          } else {
+            glowingNode.style.opacity = 0;
+          }
+        }
+      });
+    }
+
+    // Animate each row 
+    rows.forEach((row) => {
+      ScrollTrigger.create({
+        trigger: row,
+        start: 'top 60%', // Trigger right when the glowing node passing matches viewport
+        toggleActions: 'play none none reverse',
+        onEnter: () => row.classList.add('is-active'),
+        onLeaveBack: () => row.classList.remove('is-active')
+      });
+    });
+
+    // Heading entrance
+    const heading = document.querySelector('.education-journey__heading');
+    if (heading) {
+      gsap.from(heading, {
+        scrollTrigger: { trigger: heading, start: 'top 85%', toggleActions: 'play none none reverse' },
+        y: 50, opacity: 0, scale: 0.96, duration: 0.9, ease: 'power3.out'
+      });
+    }
+
+    // ── CERTIFICATIONS VELOCITY SCROLL ─────────────
+    const row1Inner = document.querySelector('.certs-row--1 .certs-marquee__inner');
+    const row2Inner = document.querySelector('.certs-row--2 .certs-marquee__inner');
+    const textInner = document.querySelector('.cert-velocity__inner');
+    
+    if (row1Inner && row2Inner && textInner) {
+      const group1 = row1Inner.querySelector('.certs-marquee__group');
+      const group2 = row2Inner.querySelector('.certs-marquee__group');
+      const groupText = textInner.querySelector('.cert-velocity__group');
+
+      let x1 = 0;
+      let x2 = 0;
+      let xText = 0;
+      let scrollVelocity = 0;
+      let smoothVelocity = 0;
+
+      // Track scroll velocity 
+      ScrollTrigger.create({
+        trigger: document.documentElement,
+        start: 0,
+        end: "max",
+        onUpdate: (self) => {
+          scrollVelocity = self.getVelocity();
+        }
+      });
+
+      const wrap = (val, max) => {
+        while (val > 0) val -= max;
+        while (val < -max) val += max;
+        return val;
+      };
+
+      const GAP = 32;
+
+      // Directions: (1 = right, -1 = left)
+      let dir1 = 1;   // Row 1: moves right
+      let dir2 = -1;  // Row 2: moves left
+      let dirText = 1; // Text: moves right
+
+      let max1 = 0, max2 = 0, maxText = 0;
+      
+      const updateWidths = () => {
+        max1 = group1.offsetWidth + GAP;
+        max2 = group2.offsetWidth + GAP;
+        maxText = groupText.offsetWidth + GAP;
+        
+        if (dir1 > 0 && x1 === 0) x1 = -max1;
+        if (dirText > 0 && xText === 0) xText = -maxText;
+      };
+
+      updateWidths();
+      window.addEventListener('resize', updateWidths);
+
+      gsap.ticker.add((time, deltaTime, frame) => {
+        // Smooth out the velocity reading
+        smoothVelocity += (scrollVelocity - smoothVelocity) * 0.1;
+        scrollVelocity *= 0.9; // decay native velocity rapidly
+
+        let baseSpeed = 1.0; 
+        
+        let scrollFactor = smoothVelocity / 1500; 
+        
+        // Add scroll delta to the base speed
+        let currentFactor = 1 + Math.abs(scrollFactor) * 5; 
+
+        let move1 = dir1 * baseSpeed * currentFactor * (deltaTime / 16.6);
+        let move2 = dir2 * baseSpeed * currentFactor * (deltaTime / 16.6);
+        let moveText = dirText * (baseSpeed * 1.5) * currentFactor * (deltaTime / 16.6);
+
+        x1 += move1;
+        x2 += move2;
+        xText += moveText;
+
+        if (max1 > 0) x1 = wrap(x1, max1);
+        if (max2 > 0) x2 = wrap(x2, max2);
+        if (maxText > 0) xText = wrap(xText, maxText);
+
+        gsap.set(row1Inner, { x: x1 });
+        gsap.set(row2Inner, { x: x2 });
+        gsap.set(textInner, { x: xText });
+      });
+    }
   }
 
   // ── SCROLL ANIMATIONS ─────────────────────────
