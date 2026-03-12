@@ -1,8 +1,6 @@
 import {
   Code, Globe, Brain, BookOpen, Wrench
 } from "lucide-react";
-import RadialOrbitalTimeline from "@/components/ui/radial-orbital-timeline";
-
 const timelineData = [
   {
     id: 1,
@@ -97,7 +95,24 @@ const timelineData = [
   },
 ];
 
+import { useEffect, useState } from "react";
+import RadialOrbitalTimeline from "@/components/ui/radial-orbital-timeline";
+import Achievements from "./Achievements";
+
 function App() {
+  const [view, setView] = useState("timeline");
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("view") === "achievements") {
+      setView("achievements");
+    }
+  }, []);
+
+  if (view === "achievements") {
+    return <Achievements />;
+  }
+
   return <RadialOrbitalTimeline timelineData={timelineData} />;
 }
 
